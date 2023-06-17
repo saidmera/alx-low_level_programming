@@ -1,28 +1,34 @@
 /*
- * File: 9-print_comb.c
+ * File: 100-print_comb3.c
  * Auth: Brennan D Baraban
  */
 
 #include <stdio.h>
 
 /**
- * main - Prints all possible combinations of single-digit numbers.
+ * main - Prints all possible combinations of two different digits,
+ *        in ascending order, separated by a comma followed by a space.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int c = 0;
+	int tens_digit;
+	int ones_digit;
 
-	while (c < 10)
+	for (tens_digit = 0; tens_digit <= 8; tens_digit++)
 	{
-		putchar((48 + c));
-		if (c != 9)
+		for (ones_digit = tens_digit + 1; ones_digit <= 9; ones_digit++)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar('0' + tens_digit);
+			putchar('0' + ones_digit);
+
+			if (tens_digit != 8 || ones_digit != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
-		c++;
 	}
 
 	putchar('\n');
