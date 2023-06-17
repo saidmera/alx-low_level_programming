@@ -13,13 +13,15 @@
  */
 int main(void)
 {
-	int digit1, digit2, digit3;
+	int digit1 = 0;
+	int digit2 = 1;
+	int digit3 = 2;
 
-	for (digit1 = 0; digit1 < 10; digit1++)
+	while (digit1 < 8)
 	{
-		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
+		while (digit2 < 9)
 		{
-			for (digit3 = digit2 + 1; digit3 < 10; digit3++)
+			while (digit3 < 10)
 			{
 				putchar((digit1 % 10) + '0');
 				putchar((digit2 % 10) + '0');
@@ -30,8 +32,17 @@ int main(void)
 				
 				putchar(',');
 				putchar(' ');
+
+				digit3++;
 			}
+
+			digit2++;
+			digit3 = digit2 + 1;
 		}
+
+		digit1++;
+		digit2 = digit1 + 1;
+		digit3 = digit2 + 1;
 	}
 
 	putchar('\n');
